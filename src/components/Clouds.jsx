@@ -1,14 +1,13 @@
-import React, { useEffect, useMemo, useRef } from "react";
-import { useGLTF, useTexture } from "@react-three/drei";
-import * as THREE from "three";
-import { FrontSide, MathUtils } from "three";
-import { Vector3 } from "three";
+import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import React, { useMemo, useRef } from "react";
+import * as THREE from "three";
+import { FrontSide, MathUtils, Vector3 } from "three";
 
 const tempV4 = new THREE.Object3D();
 
 function Clouds() {
-  const { nodes } = useGLTF("/models/cloud.glb");
+  const { nodes } = useGLTF("/demo-2022-hex-terrain/models/cloud.glb");
 
   const refs = useRef([]);
 
@@ -20,7 +19,7 @@ function Clouds() {
         MathUtils.randFloat(-1, 1)
       ).multiplyScalar(50),
       scale: MathUtils.randFloat(0.1, 0.2),
-      rate: MathUtils.randFloat(5, 10)
+      rate: MathUtils.randFloat(5, 10),
     }));
   }, []);
 
@@ -94,7 +93,5 @@ function Clouds() {
     </group>
   );
 }
-
-useGLTF.preload("/models/cloud.glb");
 
 export default React.memo(Clouds);

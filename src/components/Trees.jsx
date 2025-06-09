@@ -1,12 +1,10 @@
-import React, { useEffect, useMemo, useRef } from "react";
-import { useGLTF, useTexture } from "@react-three/drei";
-import useHexagonScatter from "../hooks/useHexagonScatter";
+import { useGLTF } from "@react-three/drei";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
-import useFBM from "../hooks/useFBM";
-import appState from "../state/appState";
 import { FrontSide, MathUtils } from "three";
-import { Vector3 } from "three";
+import useFBM from "../hooks/useFBM";
 import useTreeColors from "../hooks/useTreeColors";
+import appState from "../state/appState";
 
 const tempV4 = new THREE.Object3D();
 
@@ -15,11 +13,13 @@ export default function Trees({ points }) {
   const colors = appState((s) => s.colors);
   const generation = appState((s) => s.generation);
 
-  const { nodes, materials } = useGLTF("/models/trees.glb");
+  const { nodes, materials } = useGLTF(
+    "/demo-2022-hex-terrain/models/trees.glb"
+  );
   const color = useTreeColors();
   const noise = useFBM(colors.Water.value);
   const noise2 = useFBM(colors.Water.value, {
-    seed: generation.Seed * 200
+    seed: generation.Seed * 200,
   });
 
   const refs = useRef([]);
@@ -105,8 +105,6 @@ export default function Trees({ points }) {
     </group>
   );
 }
-
-useGLTF.preload("/models/trees.glb");
 
 function removeItemOnce(arr, index) {
   if (index > -1) {

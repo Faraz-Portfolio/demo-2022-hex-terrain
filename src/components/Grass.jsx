@@ -1,5 +1,5 @@
 import { useGLTF } from "@react-three/drei";
-import React, { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { FrontSide, MathUtils } from "three";
 import useFBM from "../hooks/useFBM";
@@ -13,7 +13,9 @@ export default function Grass({ points }) {
   const colors = appState((s) => s.colors);
   const generation = appState((s) => s.generation);
 
-  const { nodes, materials } = useGLTF("/models/grass.glb");
+  const { nodes, materials } = useGLTF(
+    "/demo-2022-hex-terrain/models/grass.glb"
+  );
   const color = useTreeColors();
   const noise = useFBM(colors.Water.value);
   const noise2 = useFBM(colors.Water.value, {
@@ -90,8 +92,6 @@ export default function Grass({ points }) {
     </group>
   );
 }
-
-useGLTF.preload("/models/grass.glb");
 
 function removeItemOnce(arr, index) {
   if (index > -1) {
