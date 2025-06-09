@@ -1,6 +1,5 @@
 {
   "name": "demo-2022-hex-terrain",
-  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -28,6 +27,7 @@
     "@eslint/js": "^9.17.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
+    "@types/three": "^0.177.0",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.17.0",
     "eslint-plugin-react": "^7.37.2",
