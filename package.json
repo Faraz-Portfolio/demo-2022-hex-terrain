@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@react-spring/three": "^9.4.1",
-    "@react-three/drei": "^10.1.2",
+    "@react-three/drei": "^10.3.0",
     "@react-three/fiber": "^9.1.2",
     "@react-three/postprocessing": "^3.0.4",
     "detect-gpu": "^4.0.4",
@@ -18,8 +18,8 @@
     "leva": "^0.10.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "three": "^0.172.0",
-    "three-custom-shader-material": "^6.2.1",
+    "three": "^0.177.0",
+    "three-custom-shader-material": "^6.3.7",
     "three-noise": "^1.1.2",
     "zustand": "^3.6.8"
   },
