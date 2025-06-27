@@ -1,6 +1,6 @@
 import { Environment, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import Effects from "./Effects";
 import Clouds from "./components/Clouds";
 import GUI from "./components/GUI";
@@ -10,7 +10,6 @@ import Terrain from "./components/ScatterHexagonMesh";
 import Trees from "./components/Trees";
 import useHexagonScatter from "./hooks/useHexagonScatter";
 import appState from "./state/appState";
-import "./styles.css";
 
 export default function App() {
   const points = useHexagonScatter(25);
@@ -40,12 +39,6 @@ export default function App() {
         </Suspense>
         <Lights />
       </Canvas>
-      <div className="copy">
-        Made with 🧡 by{" "}
-        <a target="_blank" href="https://github.com/FarazzShaikh">
-          Faraz Shaikh
-        </a>
-      </div>
     </>
   );
 }

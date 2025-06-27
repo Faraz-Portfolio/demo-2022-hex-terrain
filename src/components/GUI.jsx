@@ -1,6 +1,4 @@
 import { button, Leva, useControls } from "leva";
-import { useEffect } from "react";
-import useGPUTier from "../hooks/useGPUTier";
 import appState from "../state/appState";
 
 export default function GUI() {
@@ -12,9 +10,7 @@ export default function GUI() {
   const setColor = appState((s) => s.setColor);
   const setGeneration = appState((s) => s.setGeneration);
 
-  const tier = useGPUTier();
-
-  const [, set2] = useControls(
+  useControls(
     "General",
     () => {
       const res = {};
@@ -79,19 +75,5 @@ export default function GUI() {
     [set]
   );
 
-  useEffect(() => {
-    if (tier) {
-      if (tier > 1) {
-        set2({ Trees: true });
-      }
-      if (tier > 2) {
-        set2({ Grass: true });
-      }
-      if (tier < 1) {
-        set2({ Trees: false, Grass: false });
-      }
-    }
-  }, [tier]);
-
-  return <Leva collapsed />;
+  return <Leva collapsed titleBar={{ title: "Options" }} />;
 }

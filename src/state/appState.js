@@ -72,9 +72,9 @@ export default create((set) => ({
     ),
 
   general: {
-    Trees: false,
-    Grass: false,
-    Clouds: false,
+    Trees: true,
+    Grass: true,
+    Clouds: true,
   },
   setGeneral: (key, value) =>
     set(
