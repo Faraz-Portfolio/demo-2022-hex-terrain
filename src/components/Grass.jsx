@@ -8,14 +8,13 @@ import appState from "../state/appState";
 
 const tempV4 = new THREE.Object3D();
 
+const base = import.meta.env.BASE_URL;
 export default function Grass({ points }) {
   const group = useRef();
   const colors = appState((s) => s.colors);
   const generation = appState((s) => s.generation);
 
-  const { nodes, materials } = useGLTF(
-    "/demo-2022-hex-terrain/models/grass.glb"
-  );
+  const { nodes, materials } = useGLTF(base + "models/grass.glb");
   const color = useTreeColors();
   const noise = useFBM(colors.Water.value);
   const noise2 = useFBM(colors.Water.value, {
@@ -55,7 +54,7 @@ export default function Grass({ points }) {
           n < colors.Water.value + colors.Forest.value
         ) {
           tempV4.scale.setScalar(
-            MathUtils.mapLinear(noise2(point), 0, 1, 0.1, 0.1)
+            MathUtils.mapLinear(noise2(point), 0, 1, 0.1, 0.1),
           );
         } else {
           tempV4.scale.setScalar(0);

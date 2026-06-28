@@ -5,9 +5,10 @@ import * as THREE from "three";
 import { FrontSide, MathUtils, Vector3 } from "three";
 
 const tempV4 = new THREE.Object3D();
+const base = import.meta.env.BASE_URL;
 
 function Clouds() {
-  const { nodes } = useGLTF("/demo-2022-hex-terrain/models/cloud.glb");
+  const { nodes } = useGLTF(base + "models/cloud.glb");
 
   const refs = useRef([]);
 
@@ -16,7 +17,7 @@ function Clouds() {
       pos: new Vector3(
         MathUtils.randFloat(-8, 8),
         MathUtils.randFloat(-8, 8),
-        MathUtils.randFloat(-1, 1)
+        MathUtils.randFloat(-1, 1),
       ).multiplyScalar(50),
       scale: MathUtils.randFloat(0.1, 0.2),
       rate: MathUtils.randFloat(5, 10),
